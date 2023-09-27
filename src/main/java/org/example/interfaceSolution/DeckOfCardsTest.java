@@ -4,7 +4,7 @@ package org.example.interfaceSolution;// Fig. 7.11: DeckOfCardsTest.java
 public class DeckOfCardsTest
 {
    // executa o aplicativo
-   public static void deckTest(DeckOfCards myDeckOfCards) // DeckOfCards myDeckOfCards
+   public static void deckTest(Sueca myDeckOfCards) // DeckOfCards myDeckOfCards
    {
       // DeckOfCards myDeckOfCards = new SuecaDeckOfCards();
 

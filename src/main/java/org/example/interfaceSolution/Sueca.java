@@ -1,27 +1,29 @@
 package org.example.interfaceSolution;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-public class SuecaDeckOfCards implements DeckOfCards
+public class Sueca implements DeckOfCardsGame
 {
-    private List<Card> deck;
-    private final int NUMBER_OF_CARDS = 40;
-    private Random randomNumbers;
+    public DeckOfCards deck;
 
-    private Card trunfo;
+    public Card trunfo;
 
-    public SuecaDeckOfCards(NormalDeckOfCards normalDeckOfCards)
+    public Sueca()
     {
-        this.deck = new ArrayList<Card>();
-        this.deck.addAll(normalDeckOfCards.getDeck());
-        this.randomNumbers = new Random();
-        prepareDeck();
     }
 
-    @Override
+    public Sueca(DeckOfCards deckOfCards)
+    {
+        this.deck = deckOfCards;
+        // prepareDeck();
+    }
+
+    public void setDeckOfCards(DeckOfCards deckOfCards)
+    {
+        this.deck = deckOfCards;
+    }
+
     public void prepareDeck()
     {
+        var deck = this.deck.getDeck();
         for (int i = 0; i < deck.size(); i++)
         {
             Card card = deck.get(i);
@@ -42,43 +44,43 @@ public class SuecaDeckOfCards implements DeckOfCards
                 default -> card.setValue(0);
             }
         }
+        this.setTrunfo();
     }
 
     public Card getTrunfo() {
-        return trunfo;
+        return this.trunfo;
     }
 
     public void setTrunfo() {
-        var trunfoIndex = randomNumbers.nextInt(deck.size());
-        var trunfo = deck.get(trunfoIndex);
+        var trunfoIndex = deck.getRandomNumbers().nextInt(deck.size());
+        var trunfo = deck.getDeck().get(trunfoIndex);
         this.trunfo = trunfo;
-        deck.remove(trunfoIndex);
+        deck.getDeck().remove(trunfoIndex);
     }
 
     public void restoreTrunfo() {
-        deck.add(trunfo);
+        deck.getDeck().add(trunfo);
         trunfo = null;
     }
 
-    @Override
     public boolean hasCard()
     {
         return deck.size() > 0;
     }
-    @Override
+
     public void shuffle()
     {
         for ( int first = 0; first < deck.size(); first++ )
         {
-            int second =  randomNumbers.nextInt( NUMBER_OF_CARDS );
-            Card temp = deck.remove( second );
-            deck.add(0, temp);
+            int second =  deck.getRandomNumbers().nextInt( this.size() );
+            Card temp = deck.getDeck().remove( second );
+            deck.getDeck().add(0, temp);
         }
     }
 
     public Card dealCard()
     {
-        return deck.remove(deck.size()-1);
+        return deck.getDeck().remove(deck.size()-1);
     }
 
     public int size()
@@ -89,7 +91,7 @@ public class SuecaDeckOfCards implements DeckOfCards
     public String toString()
     {
         String s = "";
-        for (Card card : deck) {
+        for (Card card : deck.getDeck()) {
             s += card.toString() + "\n";
         }
         return s;
