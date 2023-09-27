@@ -1,11 +1,11 @@
 package org.example.interfaceSolution;
 
-public class SuecaFactory extends DeckOfCardsCompany
+public class SuecaDeckOfCardsFactory extends DeckOfCardsCompany
 {
     @Override
     public DeckOfCardsGame createDeckOfCardsGame(DeckOfCards deckOfCards)
     {
-        return new Sueca(deckOfCards);
+        return new SuecaDeckOfCards(deckOfCards);
     }
 
 }

@@ -2,26 +2,29 @@ package org.example.interfaceSolution;
 
 public class Main
 {
-    public static void main(String[] args) // DeckOfCards myDeckOfCards
+    public static void main(String[] args)
     {
+        // Deck original
         var fullDeck = new DeckOfCards();
         System.out.println("FullDeck Size: " + fullDeck.size());
-
+        // Deck Clone
         var clone = fullDeck.clonar();
 
-        var suecaFactory = new SuecaFactory();
-        var sueca = (Sueca) suecaFactory.orderDeckOfCardsGame(clone);
-        var suecaTrunfo = sueca.getTrunfo();
+        var suecaFactory = new SuecaDeckOfCardsFactory();
+        var sueca = (SuecaDeckOfCards) suecaFactory.orderDeckOfCardsGame(clone);
+        System.out.println("Sueca Size: " + sueca.size());
+        sueca.setTrunfo();
 
-        System.out.println("Size: " + sueca.size());
-        System.out.println("Trunfo = [" + suecaTrunfo + "]. A carta foi removida do deck.");
-        DeckOfCardsTest.deckTest(sueca);
+        System.out.println("Sueca Size depois de escolher o trunfo: " + sueca.size());
+        System.out.println("Trunfo = [" + sueca.getTrunfo() + "]. A carta foi removida do deck e guardada como trunfo para depois voltar ao baralho.");
+        // DeckOfCardsTest.deckTest(sueca);
 
+        // Deck Clone
         var clone2 = fullDeck.clonar();
-        var tradicionalFactory = new TradicionalFactory();
-        var tradicional = (Tradicional) tradicionalFactory.orderDeckOfCardsGame(clone2);
-        System.out.println("Size: " + tradicional.size());
-        DeckOfCardsTest.deckTest(tradicional);
+        var tradicionalFactory = new TradicionalDeckOfCardsFactory();
+        var tradicional = (TradicionalDeckOfCards) tradicionalFactory.orderDeckOfCardsGame(clone2);
+        System.out.println("\nTradicional Size: " + tradicional.size());
+        // DeckOfCardsTest.deckTest(tradicional);
     }
 }
 

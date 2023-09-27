@@ -1,17 +1,14 @@
 package org.example.interfaceSolution;
 
-public class Tradicional implements DeckOfCardsGame{
-    private DeckOfCards deck; // ArrayList usado como uma pilha de objetos
-
-    // construtor preenche baralho de cartas
-    public Tradicional()
+public class TradicionalDeckOfCards implements DeckOfCardsGame{
+    private DeckOfCards deck;
+    public TradicionalDeckOfCards()
     {
-    } // fim do construtor DeckOfCards
+    }
 
-    public Tradicional(DeckOfCards deckOfCards)
+    public TradicionalDeckOfCards(DeckOfCards deckOfCards)
     {
         this.deck = deckOfCards;
-        // prepareDeck();
     }
     public void prepareDeck() {
     }

@@ -1,22 +1,16 @@
 package org.example.interfaceSolution;
 
-public class Sueca implements DeckOfCardsGame
+public class SuecaDeckOfCards implements DeckOfCardsGame
 {
     public DeckOfCards deck;
 
     public Card trunfo;
 
-    public Sueca()
+    public SuecaDeckOfCards()
     {
     }
 
-    public Sueca(DeckOfCards deckOfCards)
-    {
-        this.deck = deckOfCards;
-        // prepareDeck();
-    }
-
-    public void setDeckOfCards(DeckOfCards deckOfCards)
+    public SuecaDeckOfCards(DeckOfCards deckOfCards)
     {
         this.deck = deckOfCards;
     }
@@ -44,7 +38,6 @@ public class Sueca implements DeckOfCardsGame
                 default -> card.setValue(0);
             }
         }
-        this.setTrunfo();
     }
 
     public Card getTrunfo() {
