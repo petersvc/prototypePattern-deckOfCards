@@ -1,23 +1,18 @@
 package org.example.interfaceSolution;
 
-public class SuecaDeckOfCards implements DeckOfCardsGame
+public class SuecaDeckOfCards extends DeckOfCards
 {
-    public DeckOfCards deck;
-
     public Card trunfo;
-
-    public SuecaDeckOfCards()
-    {
-    }
 
     public SuecaDeckOfCards(DeckOfCards deckOfCards)
     {
-        this.deck = deckOfCards;
+        this.setDeck(deckOfCards.getDeck());
     }
 
+    @Override
     public void prepareDeck()
     {
-        var deck = this.deck.getDeck();
+        var deck = this.getDeck();
         for (int i = 0; i < deck.size(); i++)
         {
             Card card = deck.get(i);
@@ -45,48 +40,15 @@ public class SuecaDeckOfCards implements DeckOfCardsGame
     }
 
     public void setTrunfo() {
-        var trunfoIndex = deck.getRandomNumbers().nextInt(deck.size());
-        var trunfo = deck.getDeck().get(trunfoIndex);
+        var deck = this.getDeck();
+        var trunfoIndex = this.getRandomNumbers().nextInt(deck.size());
+        var trunfo = deck.get(trunfoIndex);
         this.trunfo = trunfo;
-        deck.getDeck().remove(trunfoIndex);
+        deck.remove(trunfoIndex);
     }
 
     public void restoreTrunfo() {
-        deck.getDeck().add(trunfo);
+        this.getDeck().add(trunfo);
         trunfo = null;
-    }
-
-    public boolean hasCard()
-    {
-        return deck.size() > 0;
-    }
-
-    public void shuffle()
-    {
-        for ( int first = 0; first < deck.size(); first++ )
-        {
-            int second =  deck.getRandomNumbers().nextInt( this.size() );
-            Card temp = deck.getDeck().remove( second );
-            deck.getDeck().add(0, temp);
-        }
-    }
-
-    public Card dealCard()
-    {
-        return deck.getDeck().remove(deck.size()-1);
-    }
-
-    public int size()
-    {
-        return deck.size();
-    }
-
-    public String toString()
-    {
-        String s = "";
-        for (Card card : deck.getDeck()) {
-            s += card.toString() + "\n";
-        }
-        return s;
     }
 }

@@ -3,7 +3,7 @@ package org.example.interfaceSolution;// Fig. 7.11: DeckOfCardsTest.java
 
 public class DeckOfCardsTest
 {
-   public static void deckTest(DeckOfCardsGame myDeckOfCards)
+   public static void deckTest(IDeckOfCards myDeckOfCards)
    {
       System.out.println(myDeckOfCards.getClass().getName() + "---------------------------------------");
       

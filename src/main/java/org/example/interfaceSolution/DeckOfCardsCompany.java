@@ -1,11 +1,12 @@
 package org.example.interfaceSolution;
 
 public abstract class DeckOfCardsCompany {
-    public DeckOfCardsGame orderDeckOfCardsGame(DeckOfCards deckOfCards)
+    public IDeckOfCards orderDeckOfCards(DeckOfCards clone)
     {
-        DeckOfCardsGame deckOfCardsGame = createDeckOfCardsGame(deckOfCards);
-        deckOfCardsGame.prepareDeck();
-        return deckOfCardsGame;
+        IDeckOfCards deckOfCards = createDeckOfCards(clone);
+        deckOfCards.prepareDeck();
+
+        return deckOfCards;
     };
-    public abstract DeckOfCardsGame createDeckOfCardsGame(DeckOfCards deckOfCards);
+    public abstract IDeckOfCards createDeckOfCards(DeckOfCards clone);
 }
