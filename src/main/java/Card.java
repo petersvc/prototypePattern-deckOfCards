@@ -1,6 +1,4 @@
-package org.example.interfaceSolution;// Classe Card representa uma carta de baralho.
-
-public class Card 
+public class Card
 {
    private String face; // face da carta ("Ace", "Deuce", ...)
    private String suit; // naipe da carta ("Hearts", "Diamonds", ...)
