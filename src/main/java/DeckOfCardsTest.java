@@ -1,11 +1,10 @@
-package org.example.interfaceSolution;// Fig. 7.11: DeckOfCardsTest.java
 // Aplicativo de embaralhar e distribuir cartas.
 
 public class DeckOfCardsTest
 {
-   public static void deckTest(DeckOfCardsGame myDeckOfCards)
+   public static void deckTest(DeckOfCards myDeckOfCards)
    {
-      System.out.println(myDeckOfCards.getClass().getName() + "---------------------------------------");
+      System.out.println(myDeckOfCards.getClass().getTypeName() + "---------------------------------------");
       
       // imprime todas as cartas na ordem em que elas sao distribuidas
       System.out.println( "Size: " + myDeckOfCards.size());
