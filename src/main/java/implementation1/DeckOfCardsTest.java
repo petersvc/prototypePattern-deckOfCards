@@ -1,10 +1,10 @@
-// Aplicativo de embaralhar e distribuir cartas.
+package implementation1;// Aplicativo de embaralhar e distribuir cartas.
 
 public class DeckOfCardsTest
 {
    public static void deckTest(DeckOfCards myDeckOfCards)
    {
-      System.out.println(myDeckOfCards.getClass().getTypeName() + "---------------------------------------");
+      System.out.println("\n" + myDeckOfCards.getClass().getTypeName() + " ---------------------------------------");
       
       // imprime todas as cartas na ordem em que elas sao distribuidas
       System.out.println( "Size: " + myDeckOfCards.size());
@@ -20,6 +20,6 @@ public class DeckOfCardsTest
       System.out.println( "Size: " + myDeckOfCards.size());
       System.out.println("Fim ---------------------------------------");
    }
-} // fim da classe DeckOfCardsTest
+} // fim da classe implementation1.DeckOfCardsTest
 
 

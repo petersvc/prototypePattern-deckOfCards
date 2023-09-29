@@ -1,3 +1,5 @@
+package implementation1;
+
 public class Card
 {
    private String face; // face da carta ("Ace", "Deuce", ...)
@@ -10,11 +12,11 @@ public class Card
       face = cardFace; // inicializa face da carta
       suit = cardSuit; // inicializa naipe da carta
       value = cardValue;
-   } // fim do construtor Card de dois argumentos
+   } // fim do construtor implementation1.Card de dois argumentos
    
    
 
-   // retorna representa��o String de Card
+   // retorna representa��o String de implementation1.Card
    public String toString()               
    {                                      
       return face + " of " + suit + ", value " + value;        
@@ -37,6 +39,6 @@ public class Card
       this.value = value;
    }
 
-} // fim da classe Card
+} // fim da classe implementation1.Card
 
 
