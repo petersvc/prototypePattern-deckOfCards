@@ -1,18 +1,19 @@
-public class SuecaSetup extends DeckOfCardsSetup
+package implementation1;
+
+public class SuecaDeckSetup extends DeckOfCardsSetup
 {
     @Override
-    public void SetCardsProperties(DeckOfCards deckOfCards)
+    public void SetCardsProperties()
     {
-        deckOfCards.setNumberOfCards(40);
-        var cards = deckOfCards.getDeck();
-        for (int i = 0; i < deckOfCards.size(); i++)
+        targetDeck.setNumberOfCards(40);
+        for (int i = 0; i < targetDeck.size(); i++)
         {
-            Card card = cards.get(i);
+            Card card = targetDeck.getDeck().get(i);
             String face = card.getFace();
 
             if (face.equals("Eight") || face.equals("Nine") || face.equals("Ten"))
             {
-                cards.remove(i);
+                targetDeck.getDeck().remove(i);
                 i--;
             }
 

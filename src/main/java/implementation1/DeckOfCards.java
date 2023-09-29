@@ -1,8 +1,10 @@
+package implementation1;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class DeckOfCards extends DeckOfCardsSetup implements Prototype
+public class DeckOfCards implements Prototype
 {
     private List<Card> deck; // ArrayList usado como uma pilha de objetos
     private int numberOfCards = 52; // numero constante de Cards
@@ -11,10 +13,9 @@ public class DeckOfCards extends DeckOfCardsSetup implements Prototype
     // construtor preenche baralho de cartas
     public DeckOfCards()
     {
-        deck = new ArrayList<Card>(); // cria List de objetos Card
+        deck = new ArrayList<Card>(); // cria List de objetos implementation1.Card
         randomNumbers = new Random(); // cria gerador de n�mero aleat�rio
-        this.setupDeckOfCards(this);
-    } // fim do construtor DeckOfCards
+    } // fim do construtor implementation1.DeckOfCards
 
     // Construtor de copia
     private DeckOfCards(DeckOfCards deckOfCards)
@@ -32,7 +33,7 @@ public class DeckOfCards extends DeckOfCardsSetup implements Prototype
 
     public Card dealCard()
     {
-        return deck.remove(deck.size()-1); // retorna Card atual no array
+        return deck.remove(deck.size()-1); // retorna implementation1.Card atual no array
     } // fim do metodo dealCard
 
 
