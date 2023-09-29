@@ -39,6 +39,12 @@ public class Main
         Tests.sizeTest(deckOfCardsClone, deckOfCardsClone2);
         Tests.hashTest(deckOfCardsClone, deckOfCardsClone2);
 
+        // Tests.deckTest(deckOfCards);
+        // Tests.deckTest(sueca);
+        // Tests.deckTest(deckOfCardsClone);
+        // Tests.deckTest(suecaClone);
+
+
     }
 }
 
