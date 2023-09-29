@@ -13,8 +13,8 @@ public class Main
         prototypeRegistry.addPrototype("deckOfCards", deckOfCards);
         prototypeRegistry.addPrototype("sueca", sueca);
 
-        DeckOfCards deckOfCardsClone = (DeckOfCards) prototypeRegistry.getPrototype("deckOfCards");
-        Sueca suecaClone = (Sueca) prototypeRegistry.getPrototype("sueca");
+        var deckOfCardsClone = prototypeRegistry.getPrototype("deckOfCards");
+        var suecaClone = prototypeRegistry.getPrototype("sueca");
 
         // Testes
         System.out.println("\nTestes de clonagem: deckOfCards e sueca");
