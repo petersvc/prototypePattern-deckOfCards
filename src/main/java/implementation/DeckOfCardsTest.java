@@ -1,4 +1,4 @@
-package implementation1;// Aplicativo de embaralhar e distribuir cartas.
+package implementation;// Aplicativo de embaralhar e distribuir cartas.
 
 public class DeckOfCardsTest
 {

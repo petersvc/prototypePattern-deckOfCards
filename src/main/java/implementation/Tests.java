@@ -1,7 +1,7 @@
-package implementation1;
+package implementation;
 
 public class Tests {
-    public static void sizeTest(DeckOfCards original, DeckOfCards clone){
+    public static void sizeTest(CardGame original, CardGame clone){
         var elementoZeroDoOriginal = original.getDeck().get(0);
         original.getDeck().remove(0);
 
@@ -19,7 +19,7 @@ public class Tests {
         original.getDeck().add(0, elementoZeroDoOriginal);
     }
 
-    public static void hashTest(DeckOfCards original, DeckOfCards clone){
+    public static void hashTest(CardGame original, CardGame clone){
 
         System.out.println("---------------- Hash test ----------------");
         if(original.hashCode() != clone.hashCode())
