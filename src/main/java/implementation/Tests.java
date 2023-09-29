@@ -1,7 +1,9 @@
-package implementation1;
+package implementation;
 
-public class Tests {
-    public static void sizeTest(DeckOfCards original, DeckOfCards clone){
+public class Tests
+{
+    public static void sizeTest(CardGame original, CardGame clone)
+    {
         var elementoZeroDoOriginal = original.getDeck().get(0);
         original.getDeck().remove(0);
 
@@ -11,7 +13,8 @@ public class Tests {
             System.out.println("São diferentes");
             System.out.println("Size original: " + original.size() + "\nSize clone: " + clone.size());
         }
-        else{
+        else
+        {
             System.out.println("São iguais");
             System.out.println("Size original: " + original.size() + "\nSize clone: " + clone.size());
         }
@@ -19,7 +22,8 @@ public class Tests {
         original.getDeck().add(0, elementoZeroDoOriginal);
     }
 
-    public static void hashTest(DeckOfCards original, DeckOfCards clone){
+    public static void hashTest(CardGame original, CardGame clone)
+    {
 
         System.out.println("---------------- Hash test ----------------");
         if(original.hashCode() != clone.hashCode())
@@ -27,9 +31,30 @@ public class Tests {
             System.out.println("São diferentes");
             System.out.println("hashCode original: " + original.hashCode() + "\nhashCode clone: " + clone.hashCode());
         }
-        else {
+        else
+        {
             System.out.println("São iguais");
             System.out.println("hashCode original: " + original.hashCode() + "\nhashCode clone: " + clone.hashCode());
         }
     }
+
+    public static void deckTest(CardGame cardGame)
+    {
+        System.out.println("\n" + cardGame.getClass().getTypeName() + " ---------------------------------------");
+
+        // imprime todas as cartas na ordem em que elas sao distribuidas
+        System.out.println( "Size: " + cardGame.size());
+        System.out.println( cardGame);
+
+        System.out.println( "Removendo 26 cartas a partir do topo do baralho: ");
+
+        for ( int i = 0; i < 26; i++ )
+        {
+            System.out.printf( "%-20s\n",cardGame.dealCard());
+            // distribui e imprime 4 Cards
+        }
+        System.out.println( "Size: " + cardGame.size());
+        System.out.println("Fim ---------------------------------------");
+    }
+
 }

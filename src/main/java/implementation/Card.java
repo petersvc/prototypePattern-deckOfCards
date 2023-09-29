@@ -1,4 +1,4 @@
-package implementation1;
+package implementation;
 
 public class Card
 {
@@ -35,8 +35,8 @@ public class Card
 	  return suit;
    }
 
-   public void setValue(int value) {
-      this.value = value;
+   public void setValue(int newValue) {
+      this.value = newValue;
    }
 
 } // fim da classe implementation1.Card
