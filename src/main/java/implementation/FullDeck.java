@@ -1,15 +1,14 @@
 package implementation;
 
-public class DeckOfCards extends CardGame
+public class FullDeck extends Deck
 {
-    public DeckOfCards()
+    public FullDeck()
     {
         super();
     }
 
-    // copy constructor
-    public DeckOfCards(DeckOfCards deckOfCards) {
-        super(deckOfCards);
+    public FullDeck(FullDeck fullDeck) {
+        super(fullDeck);
     }
 
     @Override
@@ -32,7 +31,7 @@ public class DeckOfCards extends CardGame
     }
 
     @Override
-    public DeckOfCards clonar() {
-        return new DeckOfCards(this);
+    public FullDeck clonar() {
+        return new FullDeck(this);
     }
 }

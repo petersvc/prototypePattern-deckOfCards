@@ -2,7 +2,7 @@ package implementation;
 
 public class Tests
 {
-    public static void sizeTest(CardGame original, CardGame clone)
+    public static void sizeTest(Deck original, Deck clone)
     {
         var elementoZeroDoOriginal = original.getDeck().get(0);
         original.getDeck().remove(0);
@@ -22,7 +22,7 @@ public class Tests
         original.getDeck().add(0, elementoZeroDoOriginal);
     }
 
-    public static void hashTest(CardGame original, CardGame clone)
+    public static void hashTest(Deck original, Deck clone)
     {
 
         System.out.println("---------------- Hash test ----------------");
@@ -38,22 +38,22 @@ public class Tests
         }
     }
 
-    public static void deckTest(CardGame cardGame)
+    public static void deckTest(Deck deck)
     {
-        System.out.println("\n" + cardGame.getClass().getTypeName() + " ---------------------------------------");
+        System.out.println("\n" + deck.getClass().getTypeName() + " ---------------------------------------");
 
         // imprime todas as cartas na ordem em que elas sao distribuidas
-        System.out.println( "Size: " + cardGame.size());
-        System.out.println( cardGame);
+        System.out.println( "Size: " + deck.size());
+        System.out.println(deck);
 
         System.out.println( "Removendo 26 cartas a partir do topo do baralho: ");
 
         for ( int i = 0; i < 26; i++ )
         {
-            System.out.printf( "%-20s\n",cardGame.dealCard());
+            System.out.printf( "%-20s\n", deck.dealCard());
             // distribui e imprime 4 Cards
         }
-        System.out.println( "Size: " + cardGame.size());
+        System.out.println( "Size: " + deck.size());
         System.out.println("Fim ---------------------------------------");
     }
 

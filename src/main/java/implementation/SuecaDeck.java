@@ -1,14 +1,17 @@
 package implementation;
 
-public class Sueca extends CardGame
+public class SuecaDeck extends Deck
 {
-    public Sueca() {
+    private Card trumpCard; // carta de trunfo
+
+    public SuecaDeck() {
         super();
+        setTrumpCard();
     }
 
-    // Copy constructor
-    public Sueca(Sueca sueca) {
-        super(sueca);
+    public SuecaDeck(SuecaDeck suecaDeck) {
+        super(suecaDeck);
+        this.trumpCard = suecaDeck.getTrumpCard();
     }
 
     @Override
@@ -16,21 +19,24 @@ public class Sueca extends CardGame
         this.faces = new String[]{"Ace", "Deuce", "Three", "Four", "Five", "Six",
                 "Seven", "Jack", "Queen", "King"};
     }
+
     @Override
     public void setSuits() {
         this.suits = new String[]{"Hearts", "Diamonds", "Clubs", "Spades"};
     }
+
     @Override
     public void setValues() {
         int numberOfCards = 40;
+
         for (int count = 0; count < numberOfCards; count++)
         {
-
             String face = faces[count % 10];
             String suit = suits[count / 10];
             int value;
 
-            switch (face) {
+            switch (face)
+            {
                 case "Ace" -> value = 11;
                 case "Seven" -> value = 10;
                 case "King" -> value = 4;
@@ -43,8 +49,16 @@ public class Sueca extends CardGame
         }
     }
 
+    public void setTrumpCard() {
+        this.trumpCard = this.getDeck().get(this.getRandomNumber());
+    }
+
+    public Card getTrumpCard() {
+        return this.trumpCard;
+    }
+
     @Override
-    public Sueca clonar() {
-        return new Sueca(this);
+    public SuecaDeck clonar() {
+        return new SuecaDeck(this);
     }
 }

@@ -4,47 +4,48 @@ public class Main
 {
     public static void main(String[] args)
     {
-        // Deck original
-        var deckOfCards = new DeckOfCards();
-        var sueca = new Sueca();
+        // Cria decks originais
+        var fullDeck = new FullDeck();
+        var suecaDeck = new SuecaDeck();
 
+        // Instancia a classe que registra os prototipos
         var prototypeRegistry = new PrototypeRegistry();
 
-        prototypeRegistry.addPrototype("deckOfCards", deckOfCards);
-        prototypeRegistry.addPrototype("sueca", sueca);
+        // Adiciona os prototipos (decks originais) ao registro
+        prototypeRegistry.addPrototype("full", fullDeck);
+        prototypeRegistry.addPrototype("sueca", suecaDeck);
 
-        var deckOfCardsClone = prototypeRegistry.getPrototype("deckOfCards");
-        var suecaClone = prototypeRegistry.getPrototype("sueca");
+        // Decks clones
+        var fullDeckClone = (FullDeck) prototypeRegistry.getPrototype("full");
+        var suecaDeckClone = (SuecaDeck) prototypeRegistry.getPrototype("sueca");
 
         // Testes
-        System.out.println("\nTestes de clonagem: deckOfCards e sueca");
+        System.out.println("\nTestes de clonagem: fullDeck e suecaDeck");
 
-        Tests.sizeTest(deckOfCards, sueca);
-        Tests.hashTest(deckOfCards, sueca);
+        Tests.sizeTest(fullDeck, suecaDeck);
+        Tests.hashTest(fullDeck, suecaDeck);
 
-        System.out.println("\nTestes de clonagem: deckOfCards e DeckOfCardsClone");
+        System.out.println("\nTestes de clonagem: fullDeck e fullDeckClone");
 
-        Tests.sizeTest(deckOfCards, deckOfCardsClone);
-        Tests.hashTest(deckOfCards, deckOfCardsClone);
+        Tests.sizeTest(fullDeck, fullDeckClone);
+        Tests.hashTest(fullDeck, fullDeckClone);
 
-        System.out.println("\nTestes de clonagem: sueca e suecaClone");
+        System.out.println("\nTestes de clonagem: suecaDeck e suecaDeckClone");
 
-        Tests.sizeTest(sueca, suecaClone);
-        Tests.hashTest(sueca, suecaClone);
+        Tests.sizeTest(suecaDeck, suecaDeckClone);
+        Tests.hashTest(suecaDeck, suecaDeckClone);
 
-        System.out.println("\nTestes de clonagem: deckOfCardsClone e deckOfCardsClone2");
+        System.out.println("\nTestes de clonagem: fullDeckClone e fullDeckClone2");
 
-        var deckOfCardsClone2 = deckOfCardsClone;
+        var fullDeckClone2 = fullDeckClone;
 
-        Tests.sizeTest(deckOfCardsClone, deckOfCardsClone2);
-        Tests.hashTest(deckOfCardsClone, deckOfCardsClone2);
+        Tests.sizeTest(fullDeckClone, fullDeckClone2);
+        Tests.hashTest(fullDeckClone, fullDeckClone2);
 
-        // Tests.deckTest(deckOfCards);
-        // Tests.deckTest(sueca);
-        // Tests.deckTest(deckOfCardsClone);
-        // Tests.deckTest(suecaClone);
-
-
+        // Tests.deckTest(fullDeck);
+        // Tests.deckTest(suecaDeck);
+        // Tests.deckTest(fullDeckClone);
+        // Tests.deckTest(suecaDeckClone);
     }
 }
 

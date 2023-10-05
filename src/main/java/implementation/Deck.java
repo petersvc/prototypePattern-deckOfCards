@@ -4,29 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-// Template Method
-public abstract class CardGame
+// Classe abstrata que representa um baralho de cartas e implementa os padrões Prototype e Template Method
+public abstract class Deck
 {
-    private List<Card> deck; // ArrayList usado como uma pilha de objetos
-    private final Random randomNumbers; // gerador de numero aleatorio
+    private List<Card> deck;
     protected String[] faces;
     protected String[] suits;
 
-    public CardGame()
+    // construtor vazio para criação de um baralho original
+    public Deck()
     {
         this.deck = new ArrayList<>();
-        this.randomNumbers = new Random();
-        this.setup();
+        this.setup(); // Metodo que resume a implementação do Template Method
     }
 
-    public CardGame(CardGame deckOfCards)
+    // construtor para criação de um baralho clone
+    public Deck(Deck deckOfCards)
     {
         this.deck = new ArrayList<>(deckOfCards.getDeck());
-        this.randomNumbers = new Random();
         this.faces = deckOfCards.getFaces();
         this.suits = deckOfCards.getSuits();
     }
 
+    // base da implementação do Template Method: configura as faces, naipes e valores das cartas e embaralha
     public void setup()
     {
         setFaces();
@@ -43,36 +43,39 @@ public abstract class CardGame
         return this.faces;
     }
 
-    public Random getRandomNumbers() {
-        return randomNumbers;
+    // retorna um numero aleatorio entre 0 e o tamanho do baralho
+    public int getRandomNumber() {
+        return new Random().nextInt(this.size());
     }
 
     public List<Card> getDeck() {
         return this.deck;
     }
 
+
+    // metodos abstratos que devem ser implementados pelas classes filhas, devido à especificidade de cada baralho
     public abstract void setFaces();
 
     public abstract void setSuits();
 
     public abstract void setValues();
+    // fim dos metodos abstratos
 
+    // metodo que embaralha o baralho
     public void shuffle()
     {
-        // depois de embaralhar, a distribuiçao deve iniciar em deck[ 0 ] novamente
-
-        // para cada implementation1.Card, seleciona outro implementation1.Card aleat�rio e os compara
+        // para cada carta, seleciona outra aleatoria e as compara
         var deck = this.getDeck();
         for (int first = 0; first < deck.size(); first++)
         {
             // seleciona um numero aleatorio entre 0 e o tamanho do deck
-            int second =  new Random().nextInt(this.size());
+            int second = this.getRandomNumber();
 
-            // compara implementation1.Card atual com implementation1.Card aleatoriamente selecionado
+            // compara a carta atual com uma outra aleatoriamente selecionada
             Card temp = deck.remove(second);
             deck.add(0, temp);
-        } // for final
-    } // fim do método shuffle
+        }
+    }
 
     public Card dealCard()
     {
@@ -84,11 +87,6 @@ public abstract class CardGame
         return deck.size();
     }
 
-    public boolean hasCard()
-    {
-        return !deck.isEmpty();
-    }
-
     public String toString()
     {
         StringBuilder s = new StringBuilder();
@@ -98,7 +96,6 @@ public abstract class CardGame
         return s.toString();
     }
 
-    public abstract CardGame clonar();
-
-
+    // metodo que retorna um clone do baralho: implementação do padrão Prototype
+    public abstract Deck clonar();
 }
