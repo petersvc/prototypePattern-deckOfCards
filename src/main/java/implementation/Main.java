@@ -11,7 +11,7 @@ public class Main
         // Instancia a classe que registra os prototipos
         var prototypeRegistry = new PrototypeRegistry();
 
-        // Adiciona os prototipos (decks originais) ao registro
+        // Adiciona os decks originais ao registro de prototipos
         prototypeRegistry.addPrototype("full", fullDeck);
         prototypeRegistry.addPrototype("sueca", suecaDeck);
 

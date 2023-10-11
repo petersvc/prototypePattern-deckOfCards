@@ -2,6 +2,8 @@ package implementation;
 
 public class Tests
 {
+
+    // Testa se o tamanho dois baralhos mudam após a remoção de um elemento em um dos baralhos
     public static void sizeTest(Deck original, Deck clone)
     {
         var elementoZeroDoOriginal = original.getDeck().get(0);
@@ -22,6 +24,7 @@ public class Tests
         original.getDeck().add(0, elementoZeroDoOriginal);
     }
 
+    // testa se os hashCodes dos baralhos são iguais
     public static void hashTest(Deck original, Deck clone)
     {
 
