@@ -6,7 +6,7 @@ public class Card
    private String suit; // naipe da carta ("Hearts", "Diamonds", ...)
    private int value;
 
-   // construtor de dois argumentos inicializa face e naipe da carta
+   // construtor de dois argumentos inicializa a face e o naipe da carta
    public Card(String cardFace, String cardSuit, int cardValue)
    {
       face = cardFace; // inicializa face da carta
